@@ -1,0 +1,34 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
+/* @var $this yii\web\View */
+/* @var $model app\models\Post */
+/* @var $form yii\widgets\ActiveForm */
+?>
+
+<div class="post-form">
+
+    <?php $form = ActiveForm::begin(); ?>
+
+    <?= $form->field($model, 'title')->textarea(['rows' => 6]) ?>
+
+    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+
+    <!-- <?= $form->field($model, 'date')->textInput() ?> -->
+
+    <!-- <?= $form->field($model, 'date')->widget(\yii\jui\DatePicker::class, [
+    //'language' => 'ru',
+    //'dateFormat' => 'yyyy-MM-dd',
+    ]) ?> -->
+
+    <?= $form->field($model, 'username')->textInput(['maxlength' => true, 'value' => Yii::$app->user->identity->username, 'readonly' => true]) ?>
+
+    <div class="form-group">
+        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+    </div>
+
+    <?php ActiveForm::end(); ?>
+
+</div>
